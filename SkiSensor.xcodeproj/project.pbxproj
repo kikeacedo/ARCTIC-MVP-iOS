@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F3618F951ABF661C003FD60B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3618F941ABF661C003FD60B /* UserViewController.m */; };
 		F3618F971ABF662A003FD60B /* TracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3618F961ABF662A003FD60B /* TracksViewController.m */; };
+		F374F1611ACFF415007F64CB /* ROADMAP in Resources */ = {isa = PBXBuildFile; fileRef = F374F1601ACFF415007F64CB /* ROADMAP */; };
 		F3C183B11AB9CFCD00AEA66C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B01AB9CFCD00AEA66C /* main.m */; };
 		F3C183B41AB9CFCD00AEA66C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B31AB9CFCD00AEA66C /* AppDelegate.m */; };
 		F3C183B71AB9CFCD00AEA66C /* GoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B61AB9CFCD00AEA66C /* GoViewController.m */; };
@@ -33,6 +34,7 @@
 		F303B66C1ABCBE96004BE3D5 /* TracksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TracksViewController.h; sourceTree = "<group>"; };
 		F3618F941ABF661C003FD60B /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		F3618F961ABF662A003FD60B /* TracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksViewController.m; sourceTree = "<group>"; };
+		F374F1601ACFF415007F64CB /* ROADMAP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ROADMAP; sourceTree = "<group>"; };
 		F38E7F3B1ABAEE4100C441DB /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		F3C183AB1AB9CFCD00AEA66C /* SkiSensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkiSensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C183AF1AB9CFCD00AEA66C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		F3C183A21AB9CFCD00AEA66C = {
 			isa = PBXGroup;
 			children = (
+				F374F1601ACFF415007F64CB /* ROADMAP */,
 				F3C183AD1AB9CFCD00AEA66C /* SkiSensor */,
 				F3C183CA1AB9CFCD00AEA66C /* SkiSensorTests */,
 				F3C183AC1AB9CFCD00AEA66C /* Products */,
@@ -218,6 +221,7 @@
 				F3C183BD1AB9CFCD00AEA66C /* Main.storyboard in Resources */,
 				F3C183C21AB9CFCD00AEA66C /* LaunchScreen.xib in Resources */,
 				F3C183BF1AB9CFCD00AEA66C /* Images.xcassets in Resources */,
+				F374F1611ACFF415007F64CB /* ROADMAP in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
