@@ -8,6 +8,7 @@
 
 #import "GoViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import "TracksViewController.h"
 
 
 @interface GoViewController ()
@@ -18,8 +19,15 @@
 
 @synthesize goButton;
 bool running;
+double mi_puntuacion;
+double lado;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    mi_puntuacion = 50;
+    self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
+    
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .2;
     self.motionManager.gyroUpdateInterval = .2;
@@ -59,28 +67,33 @@ bool running;
         [goButton setImage:goButtonImg forState:UIControlStateNormal];
         running = false;
     }
+    lado = self.segmentedControl.selectedSegmentIndex;
+    self.puntuacion.text = [NSString stringWithFormat:@" %.0f",lado];
+
 }
 
--(void)outputAccelertionData:(CMAcceleration)acceleration
-{
+-(void)outputAccelertionData:(CMAcceleration)acceleration{
     if(running){
         
         self.accX.text = [NSString stringWithFormat:@" %.2fg",acceleration.x];
         self.accY.text = [NSString stringWithFormat:@" %.2fg",acceleration.y];
         self.accZ.text = [NSString stringWithFormat:@" %.2fg",acceleration.z];
         
+        self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
+        
     }
     
     
     
 }
--(void)outputRotationData:(CMRotationRate)rotation
-{
+-(void)outputRotationData:(CMRotationRate)rotation{
     if(running){
         
         self.rotX.text = [NSString stringWithFormat:@" %.2fr/s",rotation.x];
         self.rotY.text = [NSString stringWithFormat:@" %.2fr/s",rotation.y];
         self.rotZ.text = [NSString stringWithFormat:@" %.2fr/s",rotation.z];
+        self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
+
     }
     
 }
@@ -93,8 +106,6 @@ bool running;
     self.accX.text= @"0";
     self.accY.text= @"0";
     self.accZ.text= @"0";
-
-    
 }
 
 

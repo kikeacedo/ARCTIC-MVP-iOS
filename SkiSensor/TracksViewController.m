@@ -10,46 +10,53 @@
 
 @interface TracksViewController ()
 
-@property (nonatomic, strong) NSMutableArray *tableData;
-    
-
 
 @end
 
-@implementation TracksViewController{
-}
+@implementation TracksViewController
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Initialize table data
-//    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-    _tableData = [NSMutableArray array];
+    
+    datos = [[NSMutableArray alloc]initWithObjects:
+             
+             @"http://www.Apprendemos.com",
+             
+             @"http://www.AhoraQuien.es",
+             
+             @"http://www.AndNowWho.com",
+             
+             @"http://www.Apple.com",
+             
+             nil];
+    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.tableData count];
+// Método necesario para devolver el número de secciones de la tabla, por lo general será siempre 1..
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+// Necesario para indicar el número de filas de la tabla, esto suele ir ligado al tamaño de un array de elementos a mostrar..
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [datos count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Normalmente recuperaremos del array, según la posicion de la fila..
+    NSString *datoString = [datos objectAtIndex:indexPath.row];
+    // Creamos la celda (o fila).
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    // Y le establecemos el texto de nuestro dato a una de las filas.
+    cell.textLabel.text = datoString;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"celda.png"];
-    
+    // Y finalizamos devolviendo la celda
     return cell;
 }
 
-
+- (IBAction)addData:(id)sender {
+   
+}
 
 
 @end

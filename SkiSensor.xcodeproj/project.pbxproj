@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F3618F951ABF661C003FD60B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3618F941ABF661C003FD60B /* UserViewController.m */; };
-		F3618F971ABF662A003FD60B /* TracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3618F961ABF662A003FD60B /* TracksViewController.m */; };
 		F374F1611ACFF415007F64CB /* ROADMAP in Resources */ = {isa = PBXBuildFile; fileRef = F374F1601ACFF415007F64CB /* ROADMAP */; };
 		F3C183B11AB9CFCD00AEA66C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B01AB9CFCD00AEA66C /* main.m */; };
 		F3C183B41AB9CFCD00AEA66C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B31AB9CFCD00AEA66C /* AppDelegate.m */; };
@@ -17,7 +16,6 @@
 		F3C183BF1AB9CFCD00AEA66C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C183BE1AB9CFCD00AEA66C /* Images.xcassets */; };
 		F3C183C21AB9CFCD00AEA66C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C183C01AB9CFCD00AEA66C /* LaunchScreen.xib */; };
 		F3C183CE1AB9CFCD00AEA66C /* SkiSensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183CD1AB9CFCD00AEA66C /* SkiSensorTests.m */; };
-		F3ECB1991ACD66CA0015ABFE /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECB1981ACD66CA0015ABFE /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F303B66C1ABCBE96004BE3D5 /* TracksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TracksViewController.h; sourceTree = "<group>"; };
 		F3618F941ABF661C003FD60B /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
-		F3618F961ABF662A003FD60B /* TracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksViewController.m; sourceTree = "<group>"; };
 		F374F1601ACFF415007F64CB /* ROADMAP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ROADMAP; sourceTree = "<group>"; };
 		F38E7F3B1ABAEE4100C441DB /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		F3C183AB1AB9CFCD00AEA66C /* SkiSensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkiSensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,8 +45,6 @@
 		F3C183C71AB9CFCD00AEA66C /* SkiSensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkiSensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C183CC1AB9CFCD00AEA66C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C183CD1AB9CFCD00AEA66C /* SkiSensorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkiSensorTests.m; sourceTree = "<group>"; };
-		F3ECB1971ACD66B50015ABFE /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		F3ECB1981ACD66CA0015ABFE /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +93,6 @@
 				F3C183B61AB9CFCD00AEA66C /* GoViewController.m */,
 				F3618F941ABF661C003FD60B /* UserViewController.m */,
 				F38E7F3B1ABAEE4100C441DB /* UserViewController.h */,
-				F3618F961ABF662A003FD60B /* TracksViewController.m */,
-				F303B66C1ABCBE96004BE3D5 /* TracksViewController.h */,
-				F3ECB1971ACD66B50015ABFE /* SettingsViewController.h */,
-				F3ECB1981ACD66CA0015ABFE /* SettingsViewController.m */,
 				F3C183BB1AB9CFCD00AEA66C /* Main.storyboard */,
 				F3C183BE1AB9CFCD00AEA66C /* Images.xcassets */,
 				F3C183C01AB9CFCD00AEA66C /* LaunchScreen.xib */,
@@ -258,8 +248,6 @@
 				F3C183B41AB9CFCD00AEA66C /* AppDelegate.m in Sources */,
 				F3618F951ABF661C003FD60B /* UserViewController.m in Sources */,
 				F3C183B71AB9CFCD00AEA66C /* GoViewController.m in Sources */,
-				F3ECB1991ACD66CA0015ABFE /* SettingsViewController.m in Sources */,
-				F3618F971ABF662A003FD60B /* TracksViewController.m in Sources */,
 				F3C183B11AB9CFCD00AEA66C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +378,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SkiSensor/SkiSensor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -404,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SkiSensor/SkiSensor-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

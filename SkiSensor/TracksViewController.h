@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @interface TracksViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource> {
+  
+    IBOutlet UITableView *tableView;
+    
+    NSMutableArray *datos;
     
 }
+- (IBAction)addData:(id)sender;
 
 
 @end
