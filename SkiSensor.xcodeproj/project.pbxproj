@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3618F951ABF661C003FD60B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3618F941ABF661C003FD60B /* UserViewController.m */; };
 		F374F1611ACFF415007F64CB /* ROADMAP in Resources */ = {isa = PBXBuildFile; fileRef = F374F1601ACFF415007F64CB /* ROADMAP */; };
 		F3C183B11AB9CFCD00AEA66C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B01AB9CFCD00AEA66C /* main.m */; };
 		F3C183B41AB9CFCD00AEA66C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C183B31AB9CFCD00AEA66C /* AppDelegate.m */; };
@@ -29,9 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F3618F941ABF661C003FD60B /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		F374F1601ACFF415007F64CB /* ROADMAP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ROADMAP; sourceTree = "<group>"; };
-		F38E7F3B1ABAEE4100C441DB /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		F3C183AB1AB9CFCD00AEA66C /* SkiSensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkiSensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C183AF1AB9CFCD00AEA66C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C183B01AB9CFCD00AEA66C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,8 +88,6 @@
 				F3C183B31AB9CFCD00AEA66C /* AppDelegate.m */,
 				F3C183B51AB9CFCD00AEA66C /* GoViewController.h */,
 				F3C183B61AB9CFCD00AEA66C /* GoViewController.m */,
-				F3618F941ABF661C003FD60B /* UserViewController.m */,
-				F38E7F3B1ABAEE4100C441DB /* UserViewController.h */,
 				F3C183BB1AB9CFCD00AEA66C /* Main.storyboard */,
 				F3C183BE1AB9CFCD00AEA66C /* Images.xcassets */,
 				F3C183C01AB9CFCD00AEA66C /* LaunchScreen.xib */,
@@ -246,7 +241,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C183B41AB9CFCD00AEA66C /* AppDelegate.m in Sources */,
-				F3618F951ABF661C003FD60B /* UserViewController.m in Sources */,
 				F3C183B71AB9CFCD00AEA66C /* GoViewController.m in Sources */,
 				F3C183B11AB9CFCD00AEA66C /* main.m in Sources */,
 			);

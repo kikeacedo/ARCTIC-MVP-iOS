@@ -8,7 +8,6 @@
 
 #import "GoViewController.h"
 #import <CoreMotion/CoreMotion.h>
-#import "TracksViewController.h"
 
 
 @interface GoViewController ()
@@ -25,7 +24,7 @@ double lado;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mi_puntuacion = 50;
+    mi_puntuacion = 79;
     self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
     
     self.motionManager = [[CMMotionManager alloc] init];
@@ -99,13 +98,10 @@ double lado;
 }
 
 - (IBAction)resetMaxValues:(id)sender {
-    self.rotX.text= @"0";
-    self.rotY.text= @"0";
-    self.rotZ.text= @"0";
-    
-    self.accX.text= @"0";
-    self.accY.text= @"0";
-    self.accZ.text= @"0";
+   
+    mi_puntuacion = 0.0;
+    self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
+
 }
 
 
