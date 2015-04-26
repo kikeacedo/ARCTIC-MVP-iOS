@@ -16,16 +16,12 @@
 
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
-@property (strong, nonatomic) IBOutlet UILabel *accX;
-@property (strong, nonatomic) IBOutlet UILabel *accY;
-@property (strong, nonatomic) IBOutlet UILabel *accZ;
+
+@property (strong, nonatomic) IBOutlet UILabel *pendiente;
+@property (strong, nonatomic) IBOutlet UILabel *curva;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *rotX;
-@property (strong, nonatomic) IBOutlet UILabel *rotY;
-@property (strong, nonatomic) IBOutlet UILabel *rotZ;
-
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UIButton *reset;
 
 
 
@@ -33,7 +29,7 @@
 
 - (IBAction)resetMaxValues:(id)sender;
 
-- (IBAction)changeImage:(id)sender;
+- (IBAction)start_stop:(id)sender;
 
 @end
 

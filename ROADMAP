@@ -4,8 +4,16 @@
 
 31/03/2015 -->  GoViewController: implementacion giroscopio con boton Start/Stop
 
-06/04/2015 --> implementacion algoritmo puntuacion
+06/04/2015 --> Implementacion algoritmo puntuacion
 
 08/04/2015 --> Reduccion de proyecto. Todo en GoView Controller
 
 13/04/2015 --> Solucion de problemas con Xcode
+
+19/04/2015 --> Añadir funciones de numero de giros y pendiente media
+
+21/04/2015 --> Problemas con el formato de los numeros a la hora de calcular el numero de giros
+
+27/04/2015 --> Implementacion metodo calcularPendiente
+
+
