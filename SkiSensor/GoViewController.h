@@ -10,7 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 
 
-@interface GoViewController : UIViewController
+@interface GoViewController : UIViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 
@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *pendiente;
 @property (strong, nonatomic) IBOutlet UILabel *curva;
+
+@property (strong, nonatomic) IBOutlet UITextView *panel;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *reset;

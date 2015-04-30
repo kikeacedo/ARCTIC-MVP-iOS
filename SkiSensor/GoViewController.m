@@ -8,6 +8,7 @@
 
 #import "GoViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <MessageUI/MessageUI.h>
 
 
 @interface GoViewController ()
@@ -18,11 +19,9 @@
 
 @synthesize goButton;
 @synthesize reset;
+@synthesize panel;
 bool running;
-double mi_puntuacion;
 
-
-//double valores_x_ac[2000];
 NSMutableArray *valores_y_ac;
 NSMutableArray *valores_z_ac;
 NSMutableArray *valores_x_ac;
@@ -35,9 +34,9 @@ NSMutableArray *valores_z;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mi_puntuacion = 0;
+    panel.delegate = self;
     reset.hidden = true;
-    reset.layer.cornerRadius = 8;
+    reset.layer.cornerRadius = 14;
     
     valores_x_ac = [[NSMutableArray alloc] init];
     valores_y_ac = [[NSMutableArray alloc] init];
@@ -49,8 +48,8 @@ NSMutableArray *valores_z;
     
     
     self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .1;
-    self.motionManager.gyroUpdateInterval = .1;
+    self.motionManager.accelerometerUpdateInterval = .01;
+    self.motionManager.gyroUpdateInterval = .01;
     
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
@@ -72,6 +71,11 @@ NSMutableArray *valores_z;
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ Cada vez que se presiona el boton de start/stop se ejecuta este metodo.
+ - Si no se estaba ejecutando se empieza a ejecutar(guardar los valores en arrays)
+ - Si se estaba ejecutando paro la ejecucion y calculo puntuación, pendiente y numero de giros
+ **/
 - (IBAction)start_stop:(id)sender {
     if(!running){
         UIImage* goButtonImg =[UIImage imageNamed:@"stop.png"];
@@ -85,8 +89,10 @@ NSMutableArray *valores_z;
         [goButton setImage:goButtonImg forState:UIControlStateNormal];
         running = false;
         reset.hidden = false;
- 
+        
         [self calcularPuntuacion:[self calcularPendiente]];
+        [self calcularGiros];
+        [self transformarArrays ];
         
     }
     
@@ -110,36 +116,53 @@ NSMutableArray *valores_z;
  **/
 -(void)outputRotationData:(CMRotationRate)rotation{
     if(running){
-        [valores_x addObject:[NSString stringWithFormat:@" %.2f",rotation.x]];
-        [valores_y addObject:[NSString stringWithFormat:@" %.2f",rotation.y]];
-        [valores_z addObject:[NSString stringWithFormat:@" %.2f",rotation.z]];
+        [valores_x addObject:[NSNumber numberWithDouble:rotation.x]];
+        [valores_y addObject:[NSNumber numberWithDouble:rotation.y]];
+        [valores_z addObject:[NSNumber numberWithDouble:rotation.z]];
     }
 }
 
+/**
+ Elimina los datos de los arrays donde guardo los valores del giroscopio
+ **/
 - (IBAction)resetMaxValues:(id)sender {
-    mi_puntuacion = 0.0;
-    self.puntuacion.text = [NSString stringWithFormat:@" %.0f",mi_puntuacion];
-    valores_x_ac.removeAllObjects;
-    valores_y_ac.removeAllObjects;
+    self.puntuacion.text = [NSString stringWithFormat:@" 0"];
+    self.pendiente.text = [NSString stringWithFormat:@" 0"];
+    self.curva.text = [NSString stringWithFormat:@" 0"];
+    
+    [valores_x_ac removeAllObjects];
+    [valores_y_ac removeAllObjects];
+    [valores_z_ac removeAllObjects];
+    
+    [valores_x removeAllObjects];
+    [valores_y removeAllObjects];
+    [valores_z removeAllObjects];
+    
     reset.hidden = true;
 }
 
+/**
+ Calcula la puntuacion de la bajada en funcion de la pendiente.
+ - A mayor pendiente mayor necesidad de angulacion de los esquis
+ **/
 -(void)calcularPuntuacion:(double)pendiente{
     double angulacion_media = 0;
-    double suma = 0;
     double puntuacion = 0;
     for(NSNumber *i in valores_x_ac){
-        suma += fabs([i doubleValue]);
+        angulacion_media += fabs([i doubleValue]);
     }
     
-    angulacion_media = fabs(suma / valores_x_ac.count * 100);
+    angulacion_media = fabs(angulacion_media / valores_x_ac.count * 100);
     
     puntuacion = 100 - fabs(pendiente - angulacion_media);
     
-    self.puntuacion.text = [NSString stringWithFormat:@" %.0f",puntuacion];
-
+    self.puntuacion.text = [NSString stringWithFormat:@"%.0f",puntuacion];
+    
 }//calcularPuntuacion
 
+/**
+ Calcula la pendiente media de la bajada
+ **/
 - (double)calcularPendiente{
     
     double pendiente_media = 0;
@@ -149,11 +172,81 @@ NSMutableArray *valores_z;
     }
     
     pendiente_media = suma / valores_y_ac.count * 100;
-    self.pendiente.text = [NSString stringWithFormat:@" %.0f %%",pendiente_media];
+    self.pendiente.text = [NSString stringWithFormat:@"%.0f %%",pendiente_media];
     
     return pendiente_media;
     
 }//calcularPendiente
+
+/**
+ Calcula el numero de giros de la bajada
+ **/
+-(void) calcularGiros{
+    double giros = 0;
+    double media_x;
+    bool corte_1 = false;
+    bool corte_2 = false;
+    
+    for(NSNumber *i in valores_x_ac){
+        media_x += fabs([i doubleValue]);
+    }
+    media_x = media_x / valores_x_ac.count;
+    
+    for(int i = 1; i < valores_x_ac.count; i++){
+        if([valores_x_ac[i] doubleValue] > 0){
+            if(!corte_1){
+                corte_1 = true;
+            }
+        }else{
+            if(!corte_2){
+                corte_2 = true;
+            }
+        }//if-else
+        
+        if(corte_1 && corte_2){
+            giros++;
+            corte_1 = false;
+            corte_2 = false;
+        }
+    }//for
+    
+    self.curva.text = [NSString stringWithFormat:@"%.0f",giros];
+    
+}//calcularGiros
+
+
+- (IBAction)transformarArrays {
+    NSMutableString *emailBody_x;
+    NSMutableString *emailBody_y;
+    NSMutableString *emailBody_z;
+    NSMutableString *emailBody_x_ac;
+    NSMutableString *emailBody_y_ac;
+    NSMutableString *emailBody_z_ac;
+    
+    emailBody_x =[valores_x componentsJoinedByString:@"\n"];
+    emailBody_y =[valores_y componentsJoinedByString:@"\n"];
+    emailBody_z =[valores_z componentsJoinedByString:@"\n"];
+    emailBody_x_ac =[valores_x_ac componentsJoinedByString:@"\n"];
+    emailBody_y_ac =[valores_y_ac componentsJoinedByString:@"\n"];
+    emailBody_z_ac =[valores_z_ac componentsJoinedByString:@"\n"];
+    
+    NSString *emailBody;
+    
+    emailBody = [NSString stringWithFormat:(@"x:\n%@ \ny:\n%@ \nz:\n%@ \nx_ac:\n%@ \ny_ac:\n%@ \nz_ac:\n%@"),emailBody_x,emailBody_y,emailBody_z,emailBody_x_ac,emailBody_y_ac,emailBody_z_ac];
+    
+    self.panel.text = emailBody;
+}
+
+- (BOOL)textView:(UITextView *)textView
+shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+    }
+    return YES;
+}
 
 
 @end

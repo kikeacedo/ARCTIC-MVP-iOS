@@ -196,9 +196,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-g1-RAR">
-                                <rect key="frame" x="0.0" y="113" width="320" height="191"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-g1-RAR">
+                                <rect key="frame" x="116" y="141" width="200" height="86"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -216,25 +216,19 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pendiente" translatesAutoresizingMaskIntoConstraints="NO" id="pH4-yC-YMX">
-                                <rect key="frame" x="10" y="262" width="72" height="82"/>
+                                <rect key="frame" x="10" y="247" width="72" height="82"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ft-7Sy">
-                                <rect key="frame" x="82" y="268" width="200" height="76"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-SS-56A">
-                                <rect key="frame" x="10" y="337" width="72" height="82"/>
+                                <rect key="frame" x="10" y="336" width="72" height="82"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gn-Oo-AHg">
-                                <rect key="frame" x="82" y="343" width="91" height="76"/>
+                                <rect key="frame" x="116" y="336" width="200" height="82"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-EJ-ckg">
-                                <rect key="frame" x="110" y="15" width="100" height="100"/>
+                                <rect key="frame" x="110" y="27" width="100" height="100"/>
                                 <state key="normal" title="Button" image="start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -242,6 +236,21 @@
                                     <action selector="start_stop:" destination="bH1-2P-reB" eventType="touchUpInside" id="d1Z-bs-NIJ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skier" translatesAutoresizingMaskIntoConstraints="NO" id="wQc-IW-b8V">
+                                <rect key="frame" x="10" y="141" width="72" height="82"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ft-7Sy">
+                                <rect key="frame" x="116" y="247" width="200" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-3g-IXS">
+                                <rect key="frame" x="191" y="114" width="129" height="290"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -249,6 +258,7 @@
                     <connections>
                         <outlet property="curva" destination="7gn-Oo-AHg" id="cor-1s-mfM"/>
                         <outlet property="goButton" destination="oRL-EJ-ckg" id="hiB-ga-6yO"/>
+                        <outlet property="panel" destination="keZ-3g-IXS" id="9Du-X7-Bbg"/>
                         <outlet property="pendiente" destination="ext-ft-7Sy" id="xmE-wc-egv"/>
                         <outlet property="puntuacion" destination="dOp-g1-RAR" id="nh2-Se-Jbb"/>
                         <outlet property="reset" destination="Apd-dc-5y4" id="NQA-IP-fJh"/>
@@ -450,6 +460,7 @@
         <image name="curva" width="512" height="512"/>
         <image name="go" width="32" height="32"/>
         <image name="pendiente" width="128" height="128"/>
+        <image name="skier" width="256" height="256"/>
         <image name="start" width="512" height="512"/>
     </resources>
 </document>
